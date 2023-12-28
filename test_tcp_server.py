@@ -15,11 +15,11 @@ class ClientThread(threading.Thread):
             if message=='bye':
               break
             print("from client", message)
-            self.client_socket.sendall("ACK".encode())
+            # self.client_socket.sendall("ACK".encode())
         print("Client at ", client_address , " disconnected...")
 
-host = "0.0.0.0"
-port = 53
+host = "192.168.1.99"
+port = 9009
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
