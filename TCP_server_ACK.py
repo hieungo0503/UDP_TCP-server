@@ -18,8 +18,8 @@ class ClientThread(threading.Thread):
             self.client_socket.sendall("ACK".encode())
         print("Client at ", client_address , " disconnected...")
 
-host = "192.168.1.99"
-port = 9999
+host = "192.168.1.226"
+port = 55555
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((host, port))
