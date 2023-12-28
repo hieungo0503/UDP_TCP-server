@@ -5,7 +5,7 @@ import socket
 
 localIP     = "192.168.1.226"
 
-localPort   = 22220
+localPort   = 9002
 
 bufferSize  = 1024
 
