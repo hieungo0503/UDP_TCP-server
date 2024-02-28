@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/inter/Server_file/UDP_server_no_res.py", line 28, in <module>
+    UDPServerSocket.bind((localIP, localPort))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "/home/inter/Server_file/UDP_server_no_res.py", line 28, in <module>
+    UDPServerSocket.bind((localIP, localPort))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 98] Address already in use
+Traceback (most recent call last):
+  File "/home/inter/Server_file/UDP_server_no_res.py", line 28, in <module>
+    UDPServerSocket.bind((localIP, localPort))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 98] Address already in use
