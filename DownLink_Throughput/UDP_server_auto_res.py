@@ -55,4 +55,4 @@ while(True):
         UDPServerSocket.sendto(bytesToSend.encode('utf-8'), address)
         time.sleep(0.02)
     
-    print("send Done: ", bytesToSend)
+    print("send Done: ")

@@ -15,6 +15,7 @@ def udp_server(host, port, timeOut):
                 if data:
                     if start_time is None:
                         start_time = time.time()
+                        print("Client IP Address:{}".format(address))
                     total_bytes_received += len(data)
            except socket.timeout:
                 # Break out of the inner loop if timeout occurs
