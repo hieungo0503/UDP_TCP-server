@@ -3,9 +3,9 @@ import socket
 
  
 
-localIP     = "192.168.1.226"
+localIP     = "192.168.1.99"
 
-localPort   = 23020
+localPort   = 23152
 
 bufferSize  = 1024
 
