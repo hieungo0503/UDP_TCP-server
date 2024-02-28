@@ -1,6 +1,6 @@
 
 import socket
-
+import time
  
 
 localIP     = "192.168.1.99" 
@@ -11,12 +11,8 @@ bufferSize  = 1024
 
  
 
-msgFromServer       = "Hello UDP Client"
-
-bytesToSend         = str.encode(msgFromServer)
-
- 
-
+packet_size = 512
+bytesToSend         = '0' * packet_size
 # Create a datagram socket
 
 UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
@@ -31,10 +27,10 @@ UDPServerSocket.bind((localIP, localPort))
 
 print("UDP server up and listening")
 
- 
+    
 
 # Listen for incoming datagrams
-
+duration = 60
 while(True):
 
     bytesAddressPair = UDPServerSocket.recvfrom(bufferSize)
@@ -47,10 +43,16 @@ while(True):
     clientIP  = "Client IP Address:{}".format(address)
     
     print(clientMsg)
-    print(clientIP)
+    print(clientIP) 
 
    
 
-    # Sending a reply to client
+# Sending a reply to client
+    start_time = time.time()
 
-    UDPServerSocket.sendto(bytesToSend, address)
+# Send packets continuously for the specified duration
+    while time.time() - start_time < duration:
+        UDPServerSocket.sendto(bytesToSend.encode('utf-8'), address)
+        time.sleep(0.02)
+    
+    print("send Done: ", bytesToSend)
