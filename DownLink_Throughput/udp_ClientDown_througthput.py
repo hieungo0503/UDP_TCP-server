@@ -19,29 +19,31 @@ def Rc_byteAtComma(Comma, Response):
         return 0  # Or handle the error in a way appropriate to your application
 
 # Replace 'COM35' with your serial port name and 115200 with your baud rate
-ser = serial.Serial('COM35', 115200, timeout=1)
+ser = serial.Serial('COM8', 115200, timeout=1)
 
 # Send AT commands and read responses
 total_bytes_received = 0
-timeOut = 4 
+timeOut = 8 
 duration_seconds = 0
 
 CheckOut = 1
-while CheckOut <= 5:      # number of tests
+while CheckOut <= 1:      # number of tests
     total_bytes_received = 0
     start_time = None
     time_Counter = None
-    command = "AT+CSOSEND=0,0,\"000\""  #Replace your AT command Sending data
+    # command = "AT+CSOSEND=0,0,\"000\""  #Replace your AT command Sending data "3s1024by"
+    command = "12345"
     send_at_command(ser, command)
     while True:
         response = read_response(ser)
-        if '+CSONMI:' in response:      #Replace your Receive recognize  
+        if 'RECV FROM' in response:      #Replace your Receive recognize  
             time_Counter = time.time()
             if start_time == None:  
-                start_time = time.time()
+                start_time = time.time()    
                 print(f"CheckOut {CheckOut} is being process")
                 print("=======================================")
-            bytesRc = Rc_byteAtComma(1,response)
+            # bytesRc = Rc_byteAtComma(1,response   )
+            bytesRc = 512
             # print('+CSONMI:' , bytesRc)
             total_bytes_received += bytesRc
         if start_time != None:

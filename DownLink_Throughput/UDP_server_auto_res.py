@@ -45,7 +45,6 @@ while(True):
     print(clientMsg)
     print(clientIP) 
 
-   
 
 # Sending a reply to client
     start_time = time.time()
