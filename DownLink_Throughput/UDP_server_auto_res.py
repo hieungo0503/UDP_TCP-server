@@ -39,7 +39,14 @@ while(True):
 
     address = bytesAddressPair[1]
     
-    clientMsg = message
+    clientMsg = message.decode()
+    if 's' in clientMsg:
+        parts = clientMsg.split('s')
+        duration = int(parts[0])
+        bytesToSend = int(parts[1][:-2]) * '0'
+
+    # print(duration,bytesToSend)
+
     clientIP  = "Client IP Address:{}".format(address)
     
     print(clientMsg)
@@ -54,4 +61,4 @@ while(True):
         UDPServerSocket.sendto(bytesToSend.encode('utf-8'), address)
         time.sleep(0.02)
     
-    print("send Done: ")
+    print(f"send Done in {duration}s and {len(bytesToSend)} bytes")
